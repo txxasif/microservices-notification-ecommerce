@@ -9,6 +9,7 @@ import { healthRoutes } from '@notifications/routes';
 import { checkConnection } from '@notifications/elasticsearch';
 import { Channel } from 'amqplib';
 import { createConnection } from '@notifications/queues/connection';
+import { consumeAuthEmailMessages } from '@notifications/queues/email.consumer';
 // import { healthRoutes } from '@notifications/routes';
 // import { checkConnection } from '@notifications/elasticsearch';
 // import { consumeAuthEmailMessages, consumeOrderEmailMessages } from '@notifications/queues/email.consumer';
@@ -25,8 +26,8 @@ export function start(app: Application): void {
 }
 
 async function startQueues(): Promise<void> {
-  (await createConnection()) as Channel;
-  //   await consumeAuthEmailMessages(emailChannel);
+  const emailChannel: Channel = (await createConnection()) as Channel;
+  await consumeAuthEmailMessages(emailChannel);
   //   await consumeOrderEmailMessages(emailChannel);
 }
 
