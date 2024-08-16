@@ -1,0 +1,36 @@
+# Dockerfile for development environment of notification service
+
+# Use the official Node.js 21 image with Alpine Linux 3.18 as the base image
+FROM node:21-alpine3.18
+
+# Set the working directory in the container to /app
+WORKDIR /app
+
+# Copy the package.json file from the current directory into the container at /app
+COPY package.json ./
+
+# Copy the tsconfig.json file from the current directory into the container at /app
+COPY tsconfig.json ./
+
+# Copy the .npmrc file from the current directory into the container at /app
+COPY .npmrc ./
+
+# Copy the src directory from the current directory into the container at /app/src
+COPY src ./src
+
+# Copy the tools directory from the current directory into the container at /app/tools
+# COPY tools ./tools
+
+# Run the ls -a command to list all files and directories in the container
+RUN ls -a
+
+# Run npm install to install dependencies and npm install -g nodemon to install nodemon globally
+RUN npm install && npm install -g nodemon
+
+# Expose port 4001 from the container to the host
+EXPOSE 4001
+
+# Set the default command to run when the container starts to "npm run dev"
+CMD [ "npm", "run", "dev" ]
+# !RUN executes a command during the build process, committing the result as a new layer in the image
+# !CMD sets the default command to run when the container is started from the image
