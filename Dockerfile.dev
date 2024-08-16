@@ -33,4 +33,4 @@ EXPOSE 4001
 # Set the default command to run when the container starts to "npm run dev"
 CMD [ "npm", "run", "dev" ]
 # !RUN executes a command during the build process, committing the result as a new layer in the image
-# !CMD sets the default command to run when the container is started from the image
+# !CMD sets the default command to run when the container is started from the image //
