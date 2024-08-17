@@ -23,6 +23,7 @@
     "@types/email-templates": "^10.0.4",
     "@types/express": "^4.17.21",
     "@types/nodemailer": "^6.4.15",
+    "@types/shelljs": "^0.8.15",
     "@typescript-eslint/eslint-plugin": "^8.1.0",
     "@typescript-eslint/parser": "^8.1.0",
     "eslint": "^8.57.0",
@@ -35,6 +36,7 @@
   },
   "dependencies": {
     "@txxasif/shared": "^0.0.2",
+    "@types/glob": "^8.1.0",
     "amqplib": "^0.10.4",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
@@ -42,9 +44,11 @@
     "express": "^4.19.2",
     "express-async-errors": "^3.1.1",
     "http-status-codes": "^2.3.0",
+    "minimatch": "^3.0.4",
     "nodemailer": "^6.9.14",
     "nodemon": "^3.1.4",
     "pino-pretty": "^11.2.2",
+    "shelljs": "^0.8.5",
     "typescript": "^5.5.4",
     "typescript-transform-paths": "^3.4.10",
     "winston": "^3.14.1"
